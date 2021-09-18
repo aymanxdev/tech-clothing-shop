@@ -8,6 +8,7 @@ import SigninAndSignup from "./pages/signinAndSignup/SigninAndSignup";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/userActions";
 import "./App.css";
+import Signup from "./components/sign-up/Signup";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -41,11 +42,12 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path="/shop" component={ShopPage} />
+
           <Route
             exact
             path="/signin"
             render={() => {
-              this.props.currentUser ? (
+              return this.props.currentUser ? (
                 <Redirect to="/" />
               ) : (
                 <SigninAndSignup />
