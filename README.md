@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# A complete online shop with React, Redux, Firebase, Jest and lots of amazing tools and technologies
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+This project is still work in progress 🚧🚧🚧 
+
+
 
 ## Available Scripts
 
