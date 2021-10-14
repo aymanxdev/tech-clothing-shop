@@ -1,7 +1,7 @@
 import React from "react";
 import Signin from "../../components/sign-in/Signin";
 import Signup from "../../components/sign-up/Signup";
-import "./git rm -r --cached ..styles.scss";
+import "./signinAndSignup.styles.scss";
 
 const SigninAndSignup = () => {
   return (
