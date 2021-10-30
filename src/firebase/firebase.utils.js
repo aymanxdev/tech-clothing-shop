@@ -59,6 +59,25 @@ export const addCollectionAndDocuments = async (
   return await batch.commit();
 };
 
+export const convertCollectionsSnapshotsToMap = (collections) => {
+  const transformedCollection = collections.docs.map((doc) => {
+    const { title, items } = doc.data();
+
+    return {
+      routeName: encodeURI(title.toLowerCase()),
+      id: doc.id,
+      title,
+      items,
+    };
+  });
+  console.log(transformedCollection);
+
+  return transformedCollection.reduce((accumulator, collection) => {
+    accumulator[collection.title.toLowerCase()] = collection;
+    return accumulator;
+  }, {});
+};
+
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
 export default firebase;
