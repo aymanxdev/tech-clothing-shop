@@ -48,7 +48,6 @@ export const addCollectionAndDocuments = async (
   ObjectsToAdd
 ) => {
   const collectionRef = firestore.collection(collectionKey);
-  console.log(collectionRef);
 
   const batch = firestore.batch();
   ObjectsToAdd.forEach((obj) => {
@@ -70,6 +69,7 @@ export const convertCollectionsSnapshotsToMap = (collections) => {
       items,
     };
   });
+  console.log("Transformed Data: ");
   console.log(transformedCollection);
 
   return transformedCollection.reduce((accumulator, collection) => {
