@@ -13,9 +13,6 @@ const config = {
 
 firebase.initializeApp(config);
 
-export const auth = firebase.auth();
-export const firestore = firebase.firestore();
-
 export const createUserProfileDocument = async (userAuth, additiionalData) => {
   if (!userAuth) return;
 
@@ -74,6 +71,20 @@ export const convertCollectionsSnapshotsToMap = (collections) => {
     return accumulator;
   }, {});
 };
+
+/// this to create persistance
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      unsubscribe();
+      resolve(userAuth);
+    }, reject);
+  });
+};
+
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
 
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: "select_account" });
