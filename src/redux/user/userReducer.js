@@ -22,6 +22,7 @@ export const UserReducer = (state = initialState, action) => {
       };
 
     case UserActionTypes.SIGN_IN_FAILURE:
+    case UserActionTypes.SIGN_UP_FAILURE:
     case UserActionTypes.SIGN_OUT_FAILURE:
       return {
         ...state,
