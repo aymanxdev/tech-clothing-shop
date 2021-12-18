@@ -87,6 +87,8 @@ export function* signUpWithEmail({
 }) {
   try {
     const { user } = yield auth.createUserWithEmailAndPassword(email, password);
+
+    // this put, get it back to redux, taking the user and destructring the displayName from additional data we get
     yield put(
       signUpSuccess({ user, additionalData: { displayName: displayName } })
     );
@@ -94,6 +96,8 @@ export function* signUpWithEmail({
     yield put(signUpFailure(error));
   }
 }
+
+/// a listener for signup saga
 
 export function* onEmailSignUpStart() {
   yield takeLatest(UserActionTypes.SIGN_UP_START, signUpWithEmail);
