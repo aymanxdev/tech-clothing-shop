@@ -4,8 +4,7 @@
   "engines": {
     "node": "12.22.0"
   },
-  
-  "license" : "BSD-3-Clause",
+  "license": "BSD-3-Clause",
   "proxy": "http://localhost:5000",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -22,6 +21,7 @@
     "react-scripts": "4.0.3",
     "react-stripe-checkout": "^2.6.3",
     "redux": "^4.1.1",
+    "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "redux-saga": "^1.1.3",

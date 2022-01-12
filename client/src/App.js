@@ -2,7 +2,8 @@ import React, { useEffect, lazy, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "./components/header/Header";
-
+import { selectCurrentUser } from "./redux/user/user.selector";
+import { checkUserSession } from "./redux/user/userActions";
 import "./App.css";
 
 const Homepage = lazy(() => import("./pages/homepage/HomePage"));
@@ -12,13 +13,13 @@ const SigninAndSignup = lazy(() =>
   import("./pages/signinAndSignup/SigninAndSignup")
 );
 
-const App = ({}) => {
-  const currentUser = useSelector((state) => state.user.selectCurrentUser);
-  const checkUserSession = useDispatch(checkUserSession());
+const App = () => {
+  const currentUser = useSelector(selectCurrentUser);
+  const dispatch = useDispatch(checkUserSession);
 
   useEffect(() => {
-    checkUserSession();
-  }, [checkUserSession]);
+    dispatch(checkUserSession());
+  }, [dispatch]);
 
   return (
     <div>
